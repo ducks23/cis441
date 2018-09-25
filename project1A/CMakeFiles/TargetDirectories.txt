@@ -1,0 +1,3 @@
+/home/jesse/cis441/project1A/CMakeFiles/rebuild_cache.dir
+/home/jesse/cis441/project1A/CMakeFiles/edit_cache.dir
+/home/jesse/cis441/project1A/CMakeFiles/project1A.dir
