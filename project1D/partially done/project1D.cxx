@@ -188,24 +188,6 @@ int main()
        if(triangles[i].Y[0] == triangles[i].Y[1]){
            cout << " CASE 3!!" << endl;
            if(triangles[i].X[0] > triangles[i].X[1] && triangles[i].X[2] > triangles[i].X[1]){
-               bottomRight[0] = triangles[i].X[2];
-               bottomRight[1] = triangles[i].Y[2];
-               bottomRight[2] = triangles[i].Z[2];
-               topVert[0] = triangles[i].X[0];
-               topVert[1] = triangles[i].Y[0];
-               topVert[2] = triangles[i].Z[0];
-               bottomLeft[0] = triangles[i].X[1];
-               bottomLeft[1] = triangles[i].Y[1];
-               bottomLeft[2] = triangles[i].Z[1];
-               TV[0] = triangles[i].colors[0][0];
-               TV[1] = triangles[i].colors[0][1];
-               TV[2] = triangles[i].colors[0][2];
-               BL[0] = triangles[i].colors[1][0];
-               BL[1] = triangles[i].colors[1][1];
-               BL[2] = triangles[i].colors[1][2];
-               BR[0] = triangles[i].colors[2][0];
-               BR[1] = triangles[i].colors[2][1];
-               BR[2] = triangles[i].colors[2][2];
                tv = 0;
                br = 2;
                bl = 1;
@@ -214,70 +196,16 @@ int main()
                tv = 1;
                br = 0;
                bl = 2;
-               bottomRight[0] = triangles[i].X[0];
-               bottomRight[1] = triangles[i].Y[0];
-               bottomRight[2] = triangles[i].Z[0];
-               topVert[0] = triangles[i].X[1];
-               topVert[1] = triangles[i].Y[1];
-               topVert[2] = triangles[i].Z[1];
-               bottomLeft[0] = triangles[i].X[2];
-               bottomLeft[1] = triangles[i].Y[2];
-               bottomLeft[2] = triangles[i].Z[2];
-               TV[0] = triangles[i].colors[1][0];
-               TV[1] = triangles[i].colors[1][1];
-               TV[2] = triangles[i].colors[1][2];
-               BL[0] = triangles[i].colors[2][0];
-               BL[1] = triangles[i].colors[2][1];
-               BL[2] = triangles[i].colors[2][2];
-               BR[0] = triangles[i].colors[0][0];
-               BR[1] = triangles[i].colors[0][1];
-               BR[2] = triangles[i].colors[0][2];
            }
            else if(triangles[i].X[0] < triangles[i].X[1] && triangles[i].X[2] > triangles[i].X[0]){
                tv = 1;
                br = 2;
                bl = 0;
-               bottomRight[0] = triangles[i].X[2];
-               bottomRight[1] = triangles[i].Y[2];
-               bottomRight[2] = triangles[i].Z[2];
-               topVert[0] = triangles[i].X[1];
-               topVert[1] = triangles[i].Y[1];
-               topVert[2] = triangles[i].Z[1];
-               bottomLeft[0] = triangles[i].X[0];
-               bottomLeft[1] = triangles[i].Y[0];
-               bottomLeft[2] = triangles[i].Z[0];
-               TV[0] = triangles[i].colors[1][0];
-               TV[1] = triangles[i].colors[1][1];
-               TV[2] = triangles[i].colors[1][2];
-               BL[0] = triangles[i].colors[0][0];
-               BL[1] = triangles[i].colors[0][1];
-               BL[2] = triangles[i].colors[0][2];
-               BR[0] = triangles[i].colors[2][0];
-               BR[1] = triangles[i].colors[2][1];
-               BR[2] = triangles[i].colors[2][2];
            }
            else if(triangles[i].X[0] < triangles[i].X[1] && triangles[i].X[2] <= triangles[i].X[0]){
                tv = 0;
                br = 1;
                bl = 2;
-               bottomRight[0] = triangles[i].X[1];
-               bottomRight[1] = triangles[i].Y[1];
-               bottomRight[2] = triangles[i].Z[1];
-               topVert[0] = triangles[i].X[0];
-               topVert[1] = triangles[i].Y[0];
-               topVert[2] = triangles[i].Z[0];
-               bottomLeft[0] = triangles[i].X[2];
-               bottomLeft[1] = triangles[i].Y[2];
-               bottomLeft[2] = triangles[i].Z[2];
-               TV[0] = triangles[i].colors[0][0];
-               TV[1] = triangles[i].colors[0][1];
-               TV[2] = triangles[i].colors[0][2];
-               BL[0] = triangles[i].colors[2][0];
-               BL[1] = triangles[i].colors[2][1];
-               BL[2] = triangles[i].colors[2][2];
-               BR[0] = triangles[i].colors[1][0];
-               BR[1] = triangles[i].colors[1][1];
-               BR[2] = triangles[i].colors[1][2];
            }
            triangleCase = 3;
        }
@@ -287,93 +215,21 @@ int main()
                tv = 2;
                br = 0;
                bl = 1;
-               bottomRight[0] = triangles[i].X[0];
-               bottomRight[1] = triangles[i].Y[0];
-               bottomRight[2] = triangles[i].Z[0];
-               topVert[0] = triangles[i].X[2];
-               topVert[1] = triangles[i].Y[2];
-               topVert[2] = triangles[i].Z[2];
-               bottomLeft[0] = triangles[i].X[1];
-               bottomLeft[1] = triangles[i].Y[1];
-               bottomLeft[2] = triangles[i].Z[1];
-               TV[0] = triangles[i].colors[2][0];
-               TV[1] = triangles[i].colors[2][1];
-               TV[2] = triangles[i].colors[2][2];
-               BL[0] = triangles[i].colors[1][0];
-               BL[1] = triangles[i].colors[1][1];
-               BL[2] = triangles[i].colors[1][2];
-               BR[0] = triangles[i].colors[0][0];
-               BR[1] = triangles[i].colors[0][1];
-               BR[2] = triangles[i].colors[0][2];
            }
            else if(triangles[i].X[1] < triangles[i].X[2] && triangles[i].X[0] <= triangles[i].X[1]){
                tv = 1;
                br = 2;
                bl = 0;
-               bottomRight[0] = triangles[i].X[2];
-               bottomRight[1] = triangles[i].Y[2];
-               bottomRight[2] = triangles[i].Z[2];
-               topVert[0] = triangles[i].X[1];
-               topVert[1] = triangles[i].Y[1];
-               topVert[2] = triangles[i].Z[1];
-               bottomLeft[0] = triangles[i].X[0];
-               bottomLeft[1] = triangles[i].Y[0];
-               bottomLeft[2] = triangles[i].Z[0];
-               TV[0] = triangles[i].colors[1][0];
-               TV[1] = triangles[i].colors[1][1];
-               TV[2] = triangles[i].colors[1][2];
-               BL[0] = triangles[i].colors[0][0];
-               BL[1] = triangles[i].colors[0][1];
-               BL[2] = triangles[i].colors[0][2];
-               BR[0] = triangles[i].colors[2][0];
-               BR[1] = triangles[i].colors[2][1];
-               BR[2] = triangles[i].colors[2][2];
            }
            if(triangles[i].X[1] > triangles[i].X[2] && triangles[i].X[0] > triangles[i].X[2]){
                tv = 1;
                br = 0;
                bl = 2;
-               bottomRight[0] = triangles[i].X[0];
-               bottomRight[1] = triangles[i].Y[0];
-               bottomRight[2] = triangles[i].Z[0];
-               topVert[0] = triangles[i].X[1];
-               topVert[1] = triangles[i].Y[1];
-               topVert[2] = triangles[i].Z[1];
-               bottomLeft[0] = triangles[i].X[2];
-               bottomLeft[1] = triangles[i].Y[2];
-               bottomLeft[2] = triangles[i].Z[2];
-               TV[0] = triangles[i].colors[1][0];
-               TV[1] = triangles[i].colors[1][1];
-               TV[2] = triangles[i].colors[1][2];
-               BL[0] = triangles[i].colors[2][0];
-               BL[1] = triangles[i].colors[2][1];
-               BL[2] = triangles[i].colors[2][2];
-               BR[0] = triangles[i].colors[0][0];
-               BR[1] = triangles[i].colors[0][1];
-               BR[2] = triangles[i].colors[0][2];
            }
            else if(triangles[i].X[1] > triangles[i].X[2] && triangles[i].X[0] <= triangles[i].X[2]){
                tv = 2;
                br = 1;
                bl = 0;
-               bottomRight[0] = triangles[i].X[1];
-               bottomRight[1] = triangles[i].Y[1];
-               bottomRight[2] = triangles[i].Z[1];
-               topVert[0] = triangles[i].X[2];
-               topVert[1] = triangles[i].Y[2];
-               topVert[2] = triangles[i].Z[2];
-               bottomLeft[0] = triangles[i].X[0];
-               bottomLeft[1] = triangles[i].Y[0];
-               bottomLeft[2] = triangles[i].Z[0];
-               TV[0] = triangles[i].colors[2][0];
-               TV[1] = triangles[i].colors[2][1];
-               TV[2] = triangles[i].colors[2][2];
-               BL[0] = triangles[i].colors[0][0];
-               BL[1] = triangles[i].colors[0][1];
-               BL[2] = triangles[i].colors[0][2];
-               BR[0] = triangles[i].colors[1][0];
-               BR[1] = triangles[i].colors[1][1];
-               BR[2] = triangles[i].colors[1][2];
            }
            triangleCase = 4;
        }
@@ -383,245 +239,89 @@ int main()
                tv = 0;
                br = 1;
                bl = 2;
-               bottomRight[0] = triangles[i].X[1];
-               bottomRight[1] = triangles[i].Y[1];
-               bottomRight[2] = triangles[i].Z[1];
-               topVert[0] = triangles[i].X[0];
-               topVert[1] = triangles[i].Y[0];
-               topVert[2] = triangles[i].Z[0];
-               bottomLeft[0] = triangles[i].X[2];
-               bottomLeft[1] = triangles[i].Y[2];
-               bottomLeft[2] = triangles[i].Z[2];
-               TV[0] = triangles[i].colors[0][0];
-               TV[1] = triangles[i].colors[0][1];
-               TV[2] = triangles[i].colors[0][2];
-               BL[0] = triangles[i].colors[2][0];
-               BL[1] = triangles[i].colors[2][1];
-               BL[2] = triangles[i].colors[2][2];
-               BR[0] = triangles[i].colors[1][0];
-               BR[1] = triangles[i].colors[1][1];
-               BR[2] = triangles[i].colors[1][2];
            }
            
            else if(triangles[i].X[2] < triangles[i].X[0] && triangles[i].X[1] <= triangles[i].X[2]){
                tv = 2;
                br = 0;
                bl = 1;
-               bottomRight[0] = triangles[i].X[0];
-               bottomRight[1] = triangles[i].Y[0];
-               bottomRight[2] = triangles[i].Z[0];
-               topVert[0] = triangles[i].X[2];
-               topVert[1] = triangles[i].Y[2];
-               topVert[2] = triangles[i].Z[2];
-               bottomLeft[0] = triangles[i].X[1];
-               bottomLeft[1] = triangles[i].Y[1];
-               bottomLeft[2] = triangles[i].Z[1];
-               TV[0] = triangles[i].colors[2][0];
-               TV[1] = triangles[i].colors[2][1];
-               TV[2] = triangles[i].colors[2][2];
-               BL[0] = triangles[i].colors[1][0];
-               BL[1] = triangles[i].colors[1][1];
-               BL[2] = triangles[i].colors[1][2];
-               BR[0] = triangles[i].colors[0][0];
-               BR[1] = triangles[i].colors[0][1];
-               BR[2] = triangles[i].colors[0][2];
            }
            if(triangles[i].X[2] > triangles[i].X[0] && triangles[i].X[1] > triangles[i].X[0]){
                tv = 2;
                br = 1;
                bl = 0;
-               bottomRight[0] = triangles[i].X[1];
-               bottomRight[1] = triangles[i].Y[1];
-               bottomRight[2] = triangles[i].Z[1];
-               topVert[0] = triangles[i].X[2];
-               topVert[1] = triangles[i].Y[2];
-               topVert[2] = triangles[i].Z[2];
-               bottomLeft[0] = triangles[i].X[0];
-               bottomLeft[1] = triangles[i].Y[0];
-               bottomLeft[2] = triangles[i].Z[0];
-               TV[0] = triangles[i].colors[2][0];
-               TV[1] = triangles[i].colors[2][1];
-               TV[2] = triangles[i].colors[2][2];
-               BL[0] = triangles[i].colors[0][0];
-               BL[1] = triangles[i].colors[0][1];
-               BL[2] = triangles[i].colors[0][2];
-               BR[0] = triangles[i].colors[1][0];
-               BR[1] = triangles[i].colors[1][1];
-               BR[2] = triangles[i].colors[1][2];
            }
            else if(triangles[i].X[2] > triangles[i].X[0] && triangles[i].X[1] <= triangles[i].X[0]){
                tv = 0;
                br = 2;
                bl = 1;
-               bottomRight[0] = triangles[i].X[2];
-               bottomRight[1] = triangles[i].Y[2];
-               bottomRight[2] = triangles[i].Z[2];
-               topVert[0] = triangles[i].X[0];
-               topVert[1] = triangles[i].Y[0];
-               topVert[2] = triangles[i].Z[0];
-               bottomLeft[0] = triangles[i].X[1];
-               bottomLeft[1] = triangles[i].Y[1];
-               bottomLeft[2] = triangles[i].Z[1];
-               TV[0] = triangles[i].colors[0][0];
-               TV[1] = triangles[i].colors[0][1];
-               TV[2] = triangles[i].colors[0][2];
-               BL[0] = triangles[i].colors[1][0];
-               BL[1] = triangles[i].colors[1][1];
-               BL[2] = triangles[i].colors[1][2];
-               BR[0] = triangles[i].colors[2][0];
-               BR[1] = triangles[i].colors[2][1];
-               BR[2] = triangles[i].colors[2][2];
            }
            triangleCase = 5;
        }
-               bottomRight[0] = triangles[i].X[br];
-               bottomRight[1] = triangles[i].Y[br];
-               bottomRight[2] = triangles[i].Z[br];
-               topVert[0] = triangles[i].X[tv];
-               topVert[1] = triangles[i].Y[tv];
-               topVert[2] = triangles[i].Z[tv];
-               bottomLeft[0] = triangles[i].X[bl];
-               bottomLeft[1] = triangles[i].Y[bl];
-               bottomLeft[2] = triangles[i].Z[bl];
-               TV[0] = triangles[i].colors[tv][0];
-               TV[1] = triangles[i].colors[tv][1];
-               TV[2] = triangles[i].colors[tv][2];
-               BL[0] = triangles[i].colors[bl][0];
-               BL[1] = triangles[i].colors[bl][1];
-               BL[2] = triangles[i].colors[bl][2];
-               BR[0] = triangles[i].colors[br][0];
-               BR[1] = triangles[i].colors[br][1];
-               BR[2] = triangles[i].colors[br][2];
-      
        if(triangles[i].Y[0] > triangles[i].Y[1] && triangles[i].Y[0] > triangles[i].Y[2] ){
-           topVert[0] = triangles[i].X[0];
-	   topVert[1] = triangles[i].Y[0];
-	   topVert[2] = triangles[i].Z[0];
-          // TV = triangles[i].colors[0];
-           TV[0] = triangles[i].colors[0][0];
-           TV[1] = triangles[i].colors[0][1];
-           TV[2] = triangles[i].colors[0][2];
+           tv = 0;
 	   triangleCase = 0;
            cout << " CASE 0!!" << endl;
        }
        else if(triangles[i].Y[1] > triangles[i].Y[0] && triangles[i].Y[1] > triangles[i].Y[2] ){
-           topVert[0] = triangles[i].X[1];
-	   topVert[1] = triangles[i].Y[1];
-	   topVert[2] = triangles[i].Z[1];
-           TV[0] = triangles[i].colors[1][0];
-           TV[1] = triangles[i].colors[1][1];
-           TV[2] = triangles[i].colors[1][2];
-           //TV = colors[1];
+           tv = 1;
 	   triangleCase = 1;
            cout << " CASE 1!!" << endl;
        }
        else if(triangles[i].Y[2] > triangles[i].Y[0] && triangles[i].Y[2] > triangles[i].Y[1] ){
-           topVert[0] = triangles[i].X[2];
-	   topVert[1] = triangles[i].Y[2];
-	   topVert[2] = triangles[i].Z[2];
-           TV[0] = triangles[i].colors[2][0];
-           TV[1] = triangles[i].colors[2][1];
-           TV[2] = triangles[i].colors[2][2];
+           tv = 2;
 	   triangleCase = 2;
            cout << " CASE 2!!" << endl;
        }     
-
-
-
-//finds the left and right vertex
+       //finds the left and right vertex
        if(triangleCase == 0){
            if(triangles[i].X[1] < triangles[i].X[2]){
-               bottomLeft[0] = triangles[i].X[1];
-               bottomLeft[1] = triangles[i].Y[1];
-               bottomLeft[2] = triangles[i].Z[1];
-               bottomRight[0] = triangles[i].X[2];
-               bottomRight[1] = triangles[i].Y[2];
-               bottomRight[2] = triangles[i].Z[2];
-               BL[0] = triangles[i].colors[1][0];
-               BL[1] = triangles[i].colors[1][1];
-               BL[2] = triangles[i].colors[1][2];
-               BR[0] = triangles[i].colors[2][0];
-               BR[1] = triangles[i].colors[2][1];
-               BR[2] = triangles[i].colors[2][2];
+               bl = 1;
+               br = 2;
            }
            else{
-           
-               bottomRight[0] = triangles[i].X[1];
-               bottomRight[1] = triangles[i].Y[1];
-               bottomRight[2] = triangles[i].Z[1];
-               bottomLeft[0] = triangles[i].X[2];
-               bottomLeft[1] = triangles[i].Y[2];
-               bottomLeft[2] = triangles[i].Z[2];
-               BL[0] = triangles[i].colors[2][0];
-               BL[1] = triangles[i].colors[2][1];
-               BL[2] = triangles[i].colors[2][2];
-               BR[0] = triangles[i].colors[1][0];
-               BR[1] = triangles[i].colors[1][1];
-               BR[2] = triangles[i].colors[1][2];
+               br = 1;
+               bl = 2;
            }
        }
        if(triangleCase == 1){
            if(triangles[i].X[0] < triangles[i].X[2]){
-               bottomLeft[0] = triangles[i].X[0];
-               bottomLeft[1] = triangles[i].Y[0];
-               bottomLeft[2] = triangles[i].Z[0];
-               bottomRight[0] = triangles[i].X[2];
-               bottomRight[1] = triangles[i].Y[2];
-               bottomRight[2] = triangles[i].Z[2];
-               BL[0] = triangles[i].colors[0][0];
-               BL[1] = triangles[i].colors[0][1];
-               BL[2] = triangles[i].colors[0][2];
-               BR[0] = triangles[i].colors[2][0];
-               BR[1] = triangles[i].colors[2][1];
-               BR[2] = triangles[i].colors[2][2];
+               br = 2;
+               bl = 0;
            }
            else{
-           
-               bottomRight[0] = triangles[i].X[0];
-               bottomRight[1] = triangles[i].Y[0];
-               bottomRight[2] = triangles[i].Z[0];
-               bottomLeft[0] = triangles[i].X[2];
-               bottomLeft[1] = triangles[i].Y[2];
-               bottomLeft[2] = triangles[i].Z[2];
-               BL[0] = triangles[i].colors[2][0];
-               BL[1] = triangles[i].colors[2][1];
-               BL[2] = triangles[i].colors[2][2];
-               BR[0] = triangles[i].colors[0][0];
-               BR[1] = triangles[i].colors[0][1];
-               BR[2] = triangles[i].colors[0][2];
+               br = 0;
+               bl = 2;
            }
        }
        if(triangleCase == 2){
            if(triangles[i].X[0] < triangles[i].X[1]){
-               bottomLeft[0] = triangles[i].X[0];
-               bottomLeft[1] = triangles[i].Y[0];
-               bottomLeft[2] = triangles[i].Z[0];
-               bottomRight[0] = triangles[i].X[1];
-               bottomRight[1] = triangles[i].Y[1];
-               bottomRight[2] = triangles[i].Z[1];
-               BL[0] = triangles[i].colors[0][0];
-               BL[1] = triangles[i].colors[0][1];
-               BL[2] = triangles[i].colors[0][2];
-               BR[0] = triangles[i].colors[1][0];
-               BR[1] = triangles[i].colors[1][1];
-               BR[2] = triangles[i].colors[1][2];
+               br = 1;
+               bl = 0;
            }
            else{
-           
-               bottomRight[0] = triangles[i].X[0];
-               bottomRight[1] = triangles[i].Y[0];
-               bottomRight[2] = triangles[i].Z[0];
-               bottomLeft[0] = triangles[i].X[1];
-               bottomLeft[1] = triangles[i].Y[1];
-               bottomLeft[2] = triangles[i].Z[1];
-               BL[0] = triangles[i].colors[1][0];
-               BL[1] = triangles[i].colors[1][1];
-               BL[2] = triangles[i].colors[1][2];
-               BR[0] = triangles[i].colors[0][0];
-               BR[1] = triangles[i].colors[0][1];
-               BR[2] = triangles[i].colors[0][2];
+               br = 0;
+               bl = 1;
            }
        }
+       bottomRight[0] = triangles[i].X[br];
+       bottomRight[1] = triangles[i].Y[br];
+       bottomRight[2] = triangles[i].Z[br];
+       topVert[0] = triangles[i].X[tv];
+       topVert[1] = triangles[i].Y[tv];
+       topVert[2] = triangles[i].Z[tv];
+       bottomLeft[0] = triangles[i].X[bl];
+       bottomLeft[1] = triangles[i].Y[bl];
+       bottomLeft[2] = triangles[i].Z[bl];
+       TV[0] = triangles[i].colors[tv][0];
+       TV[1] = triangles[i].colors[tv][1];
+       TV[2] = triangles[i].colors[tv][2];
+       BL[0] = triangles[i].colors[bl][0];
+       BL[1] = triangles[i].colors[bl][1];
+       BL[2] = triangles[i].colors[bl][2];
+       BR[0] = triangles[i].colors[br][0];
+       BR[1] = triangles[i].colors[br][1];
+       BR[2] = triangles[i].colors[br][2];
        cout << "topVert x,y : (" << topVert[0] << ", "  << topVert[1] << ")" <<endl;
        cout << "bottomLeft x,y : (" << bottomLeft[0] << ", "  << bottomLeft[1] << ")" <<endl;
        cout << "bottomRight x,y : (" << bottomRight[0] << ", "  << bottomRight[1] << ")" <<endl;

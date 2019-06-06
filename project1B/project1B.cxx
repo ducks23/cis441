@@ -111,34 +111,6 @@ GetTriangles(void)
     cerr << "Done reading" << endl;
 
     return tris;
-
-   /*std::vector<Triangle> rv(100);
-
-   unsigned char colors[6][3] = { {255,128,0}, {255, 0, 127}, {0,204,204}, 
-                                  {76,153,0}, {255, 204, 204}, {204, 204, 0}};
-   for (int i = 0 ; i < 100 ; i++)
-   {
-       int idxI = i%10;
-       int posI = idxI*100;
-       int idxJ = i/10;
-       int posJ = idxJ*100;
-       int firstPt = (i%3);
-       rv[i].X[firstPt] = posI;
-       if (i == 50)
-           rv[i].X[firstPt] = -10;
-       rv[i].Y[firstPt] = posJ;
-       rv[i].X[(firstPt+1)%3] = posI+99;
-       rv[i].Y[(firstPt+1)%3] = posJ;
-       rv[i].X[(firstPt+2)%3] = posI+i;
-       rv[i].Y[(firstPt+2)%3] = posJ+10*(idxJ+1);
-       if (i == 95)
-          rv[i].Y[(firstPt+2)%3] = 1050;
-       rv[i].color[0] = colors[i%6][0];
-       rv[i].color[1] = colors[i%6][1];
-       rv[i].color[2] = colors[i%6][2];
-   }
-
-   return rv;*/
 }
 
 //set vertexs
@@ -163,6 +135,7 @@ int main()
    screen.height = 1000;
    double y1, m1, b1, m2, b2, midLine;
    double rowMin, rowMax, leftEnd, rightEnd;
+   int br, tv ,bl;
    int triangleCase;
    double bottomLeft[2], bottomRight[2], topVert[2];
    for(int i =0 /*2098251*/; i <size/* 2098252*/; i++){
@@ -175,118 +148,133 @@ int main()
        //cout << i << endl;
 //finds the top vertext
 
-       if(triangles[i].Y[0] > triangles[i].Y[1] && triangles[i].Y[0] > triangles[i].Y[2] ){
-           topVert[0] = triangles[i].X[0];
-	   topVert[1] = triangles[i].Y[0];
-	   triangleCase = 0;
-       }
-       else if(triangles[i].Y[1] > triangles[i].Y[0] && triangles[i].Y[1] > triangles[i].Y[2] ){
-           topVert[0] = triangles[i].X[1];
-	   topVert[1] = triangles[i].Y[1];
-	   triangleCase = 1;
-       }
-       else if(triangles[i].Y[2] > triangles[i].Y[0] && triangles[i].Y[2] > triangles[i].Y[1] ){
-           topVert[0] = triangles[i].X[2];
-	   topVert[1] = triangles[i].Y[2];
-	   triangleCase = 2;
-       }
-       else if(triangles[i].Y[0] == triangles[i].Y[1]){
-           bottomLeft[0] = triangles[i].X[2];
-           bottomLeft[1] = triangles[i].Y[2];
-           if(triangles[i].X[0] < triangles[i].X[1]){
-               bottomRight[0] = triangles[i].X[0];
-               bottomRight[1] = triangles[i].Y[0];
-               topVert[0] = triangles[i].X[1];
-               topVert[1] = triangles[i].Y[1];
+       if(triangles[i].Y[0] == triangles[i].Y[1]){
+           cout << " CASE 3!!" << endl;
+           if(triangles[i].X[0] > triangles[i].X[1] && triangles[i].X[2] > triangles[i].X[1]){
+               tv = 0;
+               br = 2;
+               bl = 1;
            }
-           else{
-               bottomRight[0] = triangles[i].X[1];
-               bottomRight[1] = triangles[i].Y[1];
-               topVert[0] = triangles[i].X[0];
-               topVert[1] = triangles[i].Y[0];
+           else if(triangles[i].X[0] > triangles[i].X[1] && triangles[i].X[2] <= triangles[i].X[1]){
+               tv = 1;
+               br = 0;
+               bl = 2;
+           }
+           else if(triangles[i].X[0] < triangles[i].X[1] && triangles[i].X[2] > triangles[i].X[0]){
+               tv = 1;
+               br = 2;
+               bl = 0;
+           }
+           else if(triangles[i].X[0] < triangles[i].X[1] && triangles[i].X[2] <= triangles[i].X[0]){
+               tv = 0;
+               br = 1;
+               bl = 2;
            }
            triangleCase = 3;
        }
        else if(triangles[i].Y[1] == triangles[i].Y[2]){
-           bottomLeft[0] = triangles[i].X[0];
-           bottomLeft[1] = triangles[i].Y[0];
-           if(triangles[i].X[1] < triangles[i].X[2]){
-               bottomRight[0] = triangles[i].X[2];
-               bottomRight[1] = triangles[i].Y[2];
-               topVert[0] = triangles[i].X[1];
-               topVert[1] = triangles[i].Y[1];
+           cout << " CASE 4!!" << endl;
+           if(triangles[i].X[1] < triangles[i].X[2] && triangles[i].X[0] > triangles[i].X[1]){
+               tv = 2;
+               br = 0;
+               bl = 1;
            }
-           else{
-               bottomRight[0] = triangles[i].X[1];
-               bottomRight[1] = triangles[i].Y[1];
-               topVert[0] = triangles[i].X[2];
-               topVert[1] = triangles[i].Y[2];
+           else if(triangles[i].X[1] < triangles[i].X[2] && triangles[i].X[0] <= triangles[i].X[1]){
+               tv = 1;
+               br = 2;
+               bl = 0;
+           }
+           if(triangles[i].X[1] > triangles[i].X[2] && triangles[i].X[0] > triangles[i].X[2]){
+               tv = 1;
+               br = 0;
+               bl = 2;
+           }
+           else if(triangles[i].X[1] > triangles[i].X[2] && triangles[i].X[0] <= triangles[i].X[2]){
+               tv = 2;
+               br = 1;
+               bl = 0;
            }
            triangleCase = 4;
        }
-       else if(triangles[i].Y[0] == triangles[i].Y[2]){
-           bottomLeft[0] = triangles[i].X[1];
-           bottomLeft[1] = triangles[i].Y[1];
-           if(triangles[i].X[0] < triangles[i].X[2]){
-               bottomRight[0] = triangles[i].X[2];
-               bottomRight[1] = triangles[i].Y[2];
-               topVert[0] = triangles[i].X[0];
-               topVert[1] = triangles[i].Y[0];
+       else if(triangles[i].Y[2] == triangles[i].Y[0]){
+           cout << " CASE 5!!" << endl;
+           if(triangles[i].X[2] < triangles[i].X[0] && triangles[i].X[1] > triangles[i].X[2]){
+               tv = 0;
+               br = 1;
+               bl = 2;
            }
-           else{
-               bottomRight[0] = triangles[i].X[0];
-               bottomRight[1] = triangles[i].Y[0];
-               topVert[0] = triangles[i].X[2];
-               topVert[1] = triangles[i].Y[2];
+
+           else if(triangles[i].X[2] < triangles[i].X[0] && triangles[i].X[1] <= triangles[i].X[2]){
+               tv = 2;
+               br = 0;
+               bl = 1;
+           }
+           if(triangles[i].X[2] > triangles[i].X[0] && triangles[i].X[1] > triangles[i].X[0]){
+               tv = 2;
+               br = 1;
+               bl = 0;
+           }
+           else if(triangles[i].X[2] > triangles[i].X[0] && triangles[i].X[1] <= triangles[i].X[0]){
+               tv = 0;
+               br = 2;
+               bl = 1;
            }
            triangleCase = 5;
-        }
-//finds the left and right vertex
+       }
+       if(triangles[i].Y[0] > triangles[i].Y[1] && triangles[i].Y[0] > triangles[i].Y[2] ){
+           tv = 0;
+           triangleCase = 0;
+           cout << " CASE 0!!" << endl;
+       }
+       else if(triangles[i].Y[1] > triangles[i].Y[0] && triangles[i].Y[1] > triangles[i].Y[2] ){
+           tv = 1;
+           triangleCase = 1;
+           cout << " CASE 1!!" << endl;
+       }
+       else if(triangles[i].Y[2] > triangles[i].Y[0] && triangles[i].Y[2] > triangles[i].Y[1] ){
+           tv = 2;
+           triangleCase = 2;
+           cout << " CASE 2!!" << endl;
+       }
        if(triangleCase == 0){
            if(triangles[i].X[1] < triangles[i].X[2]){
-               bottomLeft[0] = triangles[i].X[1];
-               bottomLeft[1] = triangles[i].Y[1];
-               bottomRight[0] = triangles[i].X[2];
-               bottomRight[1] = triangles[i].Y[2];
+               bl = 1;
+               br = 2;
            }
            else{
-           
-               bottomRight[0] = triangles[i].X[1];
-               bottomRight[1] = triangles[i].Y[1];
-               bottomLeft[0] = triangles[i].X[2];
-               bottomLeft[1] = triangles[i].Y[2];
+               br = 1;
+               bl = 2;
            }
        }
        if(triangleCase == 1){
            if(triangles[i].X[0] < triangles[i].X[2]){
-               bottomLeft[0] = triangles[i].X[0];
-               bottomLeft[1] = triangles[i].Y[0];
-               bottomRight[0] = triangles[i].X[2];
-               bottomRight[1] = triangles[i].Y[2];
+               br = 2;
+               bl = 0;
            }
            else{
-           
-               bottomRight[0] = triangles[i].X[0];
-               bottomRight[1] = triangles[i].Y[0];
-               bottomLeft[0] = triangles[i].X[2];
-               bottomLeft[1] = triangles[i].Y[2];
+               br = 0;
+               bl = 2;
            }
        }
        if(triangleCase == 2){
            if(triangles[i].X[0] < triangles[i].X[1]){
-               bottomLeft[0] = triangles[i].X[0];
-               bottomLeft[1] = triangles[i].Y[0];
-               bottomRight[0] = triangles[i].X[1];
-               bottomRight[1] = triangles[i].Y[1];
+               br = 1;
+               bl = 0;
            }
            else{
-           
-               bottomRight[0] = triangles[i].X[0];
-               bottomRight[1] = triangles[i].Y[0];
-               bottomLeft[0] = triangles[i].X[1];
-               bottomLeft[1] = triangles[i].Y[1];
+               br = 0;
+               bl = 1;
            }
        }
+
+       bottomRight[0] = triangles[i].X[br];
+       bottomRight[1] = triangles[i].Y[br];
+       topVert[0] = triangles[i].X[tv];
+       topVert[1] = triangles[i].Y[tv];
+       bottomLeft[0] = triangles[i].X[bl];
+       bottomLeft[1] = triangles[i].Y[bl];
+
+//finds the left and right vertex
        cout << "topVert x,y : (" << topVert[0] << ", "  << topVert[1] << ")" <<endl;
        cout << "bottomLeft x,y : (" << bottomLeft[0] << ", "  << bottomLeft[1] << ")" <<endl;
        cout << "bottomRight x,y : (" << bottomRight[0] << ", "  << bottomRight[1] << ")" <<endl;
